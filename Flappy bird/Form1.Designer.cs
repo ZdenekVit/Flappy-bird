@@ -54,19 +54,20 @@
             // PipeBot
             // 
             this.PipeBot.Image = global::Flappy_bird.Properties.Resources.pipe;
-            this.PipeBot.Location = new System.Drawing.Point(388, 376);
+            this.PipeBot.Location = new System.Drawing.Point(388, 461);
             this.PipeBot.Name = "PipeBot";
             this.PipeBot.Size = new System.Drawing.Size(100, 303);
             this.PipeBot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PipeBot.TabIndex = 1;
             this.PipeBot.TabStop = false;
+            this.PipeBot.Click += new System.EventHandler(this.PipeBot_Click);
             // 
             // PipeTop
             // 
             this.PipeTop.Image = global::Flappy_bird.Properties.Resources.pipedown;
-            this.PipeTop.Location = new System.Drawing.Point(388, -133);
+            this.PipeTop.Location = new System.Drawing.Point(388, -22);
             this.PipeTop.Name = "PipeTop";
-            this.PipeTop.Size = new System.Drawing.Size(100, 317);
+            this.PipeTop.Size = new System.Drawing.Size(100, 352);
             this.PipeTop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PipeTop.TabIndex = 2;
             this.PipeTop.TabStop = false;
@@ -74,7 +75,7 @@
             // Ground
             // 
             this.Ground.Image = global::Flappy_bird.Properties.Resources.ground;
-            this.Ground.Location = new System.Drawing.Point(-15, 585);
+            this.Ground.Location = new System.Drawing.Point(-17, 572);
             this.Ground.Name = "Ground";
             this.Ground.Size = new System.Drawing.Size(598, 76);
             this.Ground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

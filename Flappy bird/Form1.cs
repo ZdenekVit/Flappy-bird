@@ -15,7 +15,7 @@ namespace Flappy_bird
         int PipeSpeed = 8;
         int Gravity = 5;
         int Score = 0;
-
+        Random rnd= new Random();
 
         public Form1()
         {
@@ -29,8 +29,12 @@ namespace Flappy_bird
             PipeBot.Left -= PipeSpeed;
             while(PipeTop.Left < -100 && PipeBot.Left < -100)
             {
-                PipeTop.Left = 650;
-                PipeBot.Left = 650;
+                int distance = rnd.Next(600,700);
+                int Height = rnd.Next(-225, -20);
+                PipeTop.Left = distance;
+                PipeTop.Top = Height;
+                PipeBot.Left = distance;
+                PipeBot.Top = Height + 500;
             }
         }
 
@@ -48,6 +52,11 @@ namespace Flappy_bird
             {
                 Gravity = 5;
             }
+        }
+
+        private void PipeBot_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
