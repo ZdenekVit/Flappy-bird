@@ -12,9 +12,42 @@ namespace Flappy_bird
 {
     public partial class Form1 : Form
     {
+        int PipeSpeed = 8;
+        int Gravity = 5;
+        int Score = 0;
+
+
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void GameTimerEvent(object sender, EventArgs e)
+        {
+            FlappyBird.Top += Gravity;
+            PipeTop.Left -= PipeSpeed;
+            PipeBot.Left -= PipeSpeed;
+            while(PipeTop.Left < -100 && PipeBot.Left < -100)
+            {
+                PipeTop.Left = 650;
+                PipeBot.Left = 650;
+            }
+        }
+
+        private void GameKeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Space)
+            {
+                Gravity = -5;
+            }
+        }
+
+        private void GameKeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                Gravity = 5;
+            }
         }
     }
 }

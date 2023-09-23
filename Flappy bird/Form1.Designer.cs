@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.FlappyBird = new System.Windows.Forms.PictureBox();
             this.PipeBot = new System.Windows.Forms.PictureBox();
             this.PipeTop = new System.Windows.Forms.PictureBox();
             this.Ground = new System.Windows.Forms.PictureBox();
-            this.Score = new System.Windows.Forms.Label();
+            this.IScore = new System.Windows.Forms.Label();
+            this.GameTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.FlappyBird)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeBot)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeTop)).BeginInit();
@@ -79,29 +81,37 @@
             this.Ground.TabIndex = 3;
             this.Ground.TabStop = false;
             // 
-            // Score
+            // IScore
             // 
-            this.Score.AutoSize = true;
-            this.Score.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Score.Location = new System.Drawing.Point(12, 9);
-            this.Score.Name = "Score";
-            this.Score.Size = new System.Drawing.Size(89, 20);
-            this.Score.TabIndex = 4;
-            this.Score.Text = "Score : 0";
+            this.IScore.AutoSize = true;
+            this.IScore.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IScore.Location = new System.Drawing.Point(12, 9);
+            this.IScore.Name = "IScore";
+            this.IScore.Size = new System.Drawing.Size(89, 20);
+            this.IScore.TabIndex = 4;
+            this.IScore.Text = "Score : 0";
+            // 
+            // GameTimer
+            // 
+            this.GameTimer.Enabled = true;
+            this.GameTimer.Interval = 20;
+            this.GameTimer.Tick += new System.EventHandler(this.GameTimerEvent);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.ClientSize = new System.Drawing.Size(551, 647);
-            this.Controls.Add(this.Score);
+            this.ClientSize = new System.Drawing.Size(534, 641);
+            this.Controls.Add(this.IScore);
             this.Controls.Add(this.Ground);
             this.Controls.Add(this.PipeTop);
             this.Controls.Add(this.PipeBot);
             this.Controls.Add(this.FlappyBird);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GameKeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GameKeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.FlappyBird)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeBot)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PipeTop)).EndInit();
@@ -117,7 +127,8 @@
         private System.Windows.Forms.PictureBox PipeBot;
         private System.Windows.Forms.PictureBox PipeTop;
         private System.Windows.Forms.PictureBox Ground;
-        private System.Windows.Forms.Label Score;
+        private System.Windows.Forms.Label IScore;
+        private System.Windows.Forms.Timer GameTimer;
     }
 }
 
