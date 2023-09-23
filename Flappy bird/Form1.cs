@@ -27,7 +27,9 @@ namespace Flappy_bird
             FlappyBird.Top += Gravity;
             PipeTop.Left -= PipeSpeed;
             PipeBot.Left -= PipeSpeed;
-            while(PipeTop.Left < -100 && PipeBot.Left < -100)
+            IScore.Text = "Score: " + Score.ToString();
+
+            if (PipeTop.Left < -100 && PipeBot.Left < -100)
             {
                 int distance = rnd.Next(600,700);
                 int Height = rnd.Next(-225, -20);
@@ -35,6 +37,16 @@ namespace Flappy_bird
                 PipeTop.Top = Height;
                 PipeBot.Left = distance;
                 PipeBot.Top = Height + 500;
+            }
+
+            if(PipeTop.Left > 51 && PipeTop.Left < 60)
+            {
+                Score++;
+            }
+
+            if (FlappyBird.Bounds.IntersectsWith(PipeTop.Bounds) || FlappyBird.Bounds.IntersectsWith(PipeBot.Bounds) || FlappyBird.Bounds.IntersectsWith(Ground.Bounds))
+            {
+                EndGame();
             }
         }
 
@@ -57,6 +69,11 @@ namespace Flappy_bird
         private void PipeBot_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void EndGame()
+        {
+            GameTimer.Stop();
         }
     }
 }

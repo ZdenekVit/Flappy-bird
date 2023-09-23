@@ -44,7 +44,7 @@
             // FlappyBird
             // 
             this.FlappyBird.Image = global::Flappy_bird.Properties.Resources.bird;
-            this.FlappyBird.Location = new System.Drawing.Point(62, 229);
+            this.FlappyBird.Location = new System.Drawing.Point(60, 229);
             this.FlappyBird.Name = "FlappyBird";
             this.FlappyBird.Size = new System.Drawing.Size(82, 65);
             this.FlappyBird.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -65,7 +65,7 @@
             // PipeTop
             // 
             this.PipeTop.Image = global::Flappy_bird.Properties.Resources.pipedown;
-            this.PipeTop.Location = new System.Drawing.Point(388, -22);
+            this.PipeTop.Location = new System.Drawing.Point(388, -100);
             this.PipeTop.Name = "PipeTop";
             this.PipeTop.Size = new System.Drawing.Size(100, 352);
             this.PipeTop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
